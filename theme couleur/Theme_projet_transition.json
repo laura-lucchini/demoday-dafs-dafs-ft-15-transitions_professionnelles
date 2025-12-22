@@ -1,0 +1,15 @@
+﻿{
+  "name": "PastelTransitionsPro",
+  "dataColors": [
+    "#4DA6EA",
+    "#B480DD",
+    "#9741E3",
+    "#B8E2E6",
+    "#FE9666",
+    "#A66999",
+    "#FFFFFF"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#363636",
+  "tableAccent": "#B3C8D8"
+}
