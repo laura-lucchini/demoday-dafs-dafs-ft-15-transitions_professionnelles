@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transition Professionnelle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #7C3AED;
+            --primary-light: #A78BFA;
+            --primary-dark: #5B21B6;
+            --background: #F3E8FF;
+            --text: #5B21B6;
+            --text-light: #7C3AED;
+            --card: #FFFFFF;
+            --border: #DDD6FE;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--card);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-dark);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        h2 {
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 10px;
+            margin-top: 30px;
+            font-weight: 500;
+        }
+
+        .form-section {
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+
+        .form-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 8px;
+            font-weight: 500;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background-color: #F3E8FF;
+            font-size: 16px;
+            transition: border 0.3s;
+            box-sizing: border-box;
+        }
+
+        select:focus, input:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+
+        .radio-group label {
+            font-weight: 400;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0;
+        }
+
+        .radio-group input[type="radio"] {
+            width: auto;
+            margin: 0;
+            padding: 0;
+        }
+
+        button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            display: block;
+            margin: 20px auto 0;
+        }
+
+        button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        #metier-info, #comparaison-container {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #F3E8FF;
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .tension {
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-block;
+        }
+
+        .forte { background-color: #22C55E; color: white; }
+        .moyenne { background-color: #FB923C; color: white; }
+        .faible { background-color: #EF4444; color: white; }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-label {
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: var(--primary-dark);
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .icon {
+            margin-right: 8px;
+            color: var(--primary);
+        }
+
+        .comparaison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .metier-card {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .metier-card .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: var(--primary-dark);
+            cursor: pointer;
+            font-size: 18px;
+            padding: 0;
+            margin: 0;
+            width: auto;
+            display: block;
+        }
+
+        .metier-card h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+
+        .add-to-compare {
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+            margin: 10px 0;
+        }
+
+        .add-to-compare:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        #comparaison-bouton {
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+            margin: 20px auto;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .info-grid, .comparaison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .radio-group {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-exchange-alt icon"></i> Transition Professionnelle</h1>
+
+        <div class="form-section" id="profil-section">
+            <h2>1. Votre profil</h2>
+            <label>Genre :</label>
+            <div class="radio-group">
+                <input type="radio" id="homme" name="genre" value="homme" required>
+                <label for="homme"><i class="fas fa-male icon"></i> Homme</label>
+                <input type="radio" id="femme" name="genre" value="femme">
+                <label for="femme"><i class="fas fa-female icon"></i> Femme</label>
+            </div>
+        </div>
+
+        <div class="form-section" id="experience-section">
+            <h2>2. Expérience professionnelle</h2>
+            <label for="secteur-exp">Secteur d'activité :</label>
+            <select id="secteur-exp" name="secteur-exp">
+                <option value="">-- Sélectionnez un secteur --</option>
+                <option value="numerique">Numérique</option>
+                <option value="sante">Santé</option>
+                <option value="artisanat">Artisanat</option>
+                <option value="education">Éducation</option>
+                <option value="batiment">Bâtiment</option>
+                <option value="commerce">Commerce</option>
+                <option value="tourisme">Tourisme</option>
+                <option value="environnement">Environnement</option>
+            </select>
+
+            <label for="metier-exp">Métier :</label>
+            <select id="metier-exp" name="metier-exp" disabled>
+                <option value="">-- Sélectionnez d'abord un secteur --</option>
+            </select>
+
+            <label for="anciennete">Ancienneté (années) :</label>
+            <input type="number" id="anciennete" name="anciennete" min="0" max="50" placeholder="Ex: 5">
+        </div>
+
+        <div class="form-section" id="orientation-section">
+            <h2>3. Orientation</h2>
+            <label for="secteur-ori">Secteur d'orientation :</label>
+            <select id="secteur-ori" name="secteur-ori">
+                <option value="">-- Sélectionnez un secteur --</option>
+                <option value="numerique">Numérique</option>
+                <option value="sante">Santé</option>
+                <option value="artisanat">Artisanat</option>
+                <option value="education">Éducation</option>
+                <option value="batiment">Bâtiment</option>
+                <option value="commerce">Commerce</option>
+                <option value="tourisme">Tourisme</option>
+                <option value="environnement">Environnement</option>
+            </select>
+
+            <label for="metier-ori">Métier d'orientation :</label>
+            <select id="metier-ori" name="metier-ori" disabled>
+                <option value="">-- Sélectionnez d'abord un secteur --</option>
+            </select>
+
+            <label for="region">Région :</label>
+            <select id="region" name="region">
+                <option value="">-- Sélectionnez une région --</option>
+                <option value="auvergne-rhone-alpes">Auvergne-Rhône-Alpes</option>
+                <option value="bourgogne-franche-comte">Bourgogne-Franche-Comté</option>
+                <option value="bretagne">Bretagne</option>
+                <option value="centre-val-de-loire">Centre-Val de Loire</option>
+                <option value="corse">Corse</option>
+                <option value="grand-est">Grand Est</option>
+                <option value="hauts-de-france">Hauts-de-France</option>
+                <option value="ile-de-france">Île-de-France</option>
+                <option value="normandie">Normandie</option>
+                <option value="nouvelle-aquitaine">Nouvelle-Aquitaine</option>
+                <option value="occitanie">Occitanie</option>
+                <option value="pays-de-la-loire">Pays de la Loire</option>
+                <option value="provence-alpes-cote-d-azur">Provence-Alpes-Côte d'Azur</option>
+            </select>
+        </div>
+
+        <button type="button" id="voir-metier">Voir les détails du métier</button>
+
+        <div id="metier-info"></div>
+
+        <button type="button" id="comparaison-bouton">Comparer les métiers sélectionnés</button>
+
+        <div id="comparaison-container">
+            <h2>Comparaison des métiers</h2>
+            <div class="comparaison-grid" id="comparaison-grid">
+                <!-- Les cartes de comparaison seront ajoutées ici -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const metiersParSecteur = {
+            numerique: [
+                {
+                    nom: "Développeur web",
+                    tension: "forte",
+                    diplomes: "Bac+2 à Bac+5",
+                    contraintes: "Travail sur écran, télétravail possible",
+                    salaire: "2 500 - 4 000 €",
+                    lienFranceTravail: "https://candidat.pole-emploi.fr/offres/recherche?motsCles=d%C3%A9veloppeur+web"
+                },
+                {
+                    nom: "Data Analyst",
+                    tension: "forte",
+                    diplomes: "Bac+3 à Bac+5",
+                    contraintes: "Analyse de données, travail sédentaire",
+                    salaire: "2 800 - 4 500 €",
+                    lienFranceTravail: "https://candidat.pole-emploi.fr/offres/recherche?motsCles=data+analyst"
+                },
+                {
+                    nom: "Community Manager",
+                    tension: "moyenne",
+                    diplomes: "Bac+2 à Bac+3",
+                    contraintes: "Gestion des réseaux sociaux, horaires variables",
+                    salaire: "2 000 - 3 200 €",
+                    lienFranceTravail: "https://candidat.pole-emploi.fr/offres/recherche?motsCles=community+manager"
+                }
+            ],
+            sante: [
+                {
+                    nom: "Infirmier",
+                    tension: "forte",
+                    diplomes: "DE Infirmier (Bac+3)",
+                    contraintes: "Horaires décalés, travail physique",
+                    salaire: "2 000 - 3 000 €",
+                    lienFranceTravail: "https://candidat.pole-emploi.fr/offres/recherche?motsCles=infirmier"
+                },
+                {
+                    nom: "Aide-soignant",
+                    tension: "forte",
+                    diplomes: "DEAS (Bac)",
+                    contraintes: "Travail physique, horaires variables",
+                    salaire: "1 600 - 2 200 €",
+                    lienFranceTravail: "https://candidat.pole-emploi.fr/offres/recherche?motsCles=aide+soignant"
+                }
+            ],
+            artisanat: [
+                {
+                    nom: "Électricien",
+                    tension: "forte",
+                    diplomes: "CAP/BEP",
+                    contraintes: "Travail physique, déplacements",
+                    salaire: "1 800 - 2 800 €",
+                    lienFranceTravail: "https://candidat.pole-emploi.fr/offres/recherche?motsCles=%C3%A9lectricien"
+                },
+                {
+                    nom: "Plombier",
+                    tension: "moyenne",
+                    diplomes: "CAP/BEP",
+                    contraintes: "Travail physique, astreintes possibles",
+                    salaire: "1 900 - 3 000 €",
+                    lienFranceTravail: "https://candidat.pole-emploi.fr/offres/recherche?motsCles=plombier"
+                }
+            ],
+            education: [
+                {
+                    nom: "Professeur des écoles",
+                    tension: "moyenne",
+                    diplomes: "Master MEEF (Bac+5)",
+                    contraintes: "Gestion de classe, préparation de cours",
+                    salaire: "2 000 - 3 000 €",
+                    lienFranceTravail: "https://candidat.pole-emploi.fr/offres/recherche?motsCles=professeur+des+%C3%A9coles"
+                }
+            ],
+            batiment: [
+                {
+                    nom: "Maçon",
+                    tension: "forte",
+                    diplomes: "CAP/BEP",
+                    contraintes: "Travail physique, extérieur",
+                    salaire: "1 800 - 2 800 €",
+                    lienFranceTravail: "https://candidat.pole-emploi.fr/offres/recherche?motsCles=ma%C3%A7on"
+                }
+            ],
+            commerce: [
+                {
+                    nom: "Responsable de rayon",
+                    tension: "moyenne",
+                    diplomes: "Bac à Bac+2",
+                    contraintes: "Horaires variables, gestion d'équipe",
+                    salaire: "2 000 - 3 000 €",
+                    lienFranceTravail: "https://candidat.pole-emploi.fr/offres/recherche?motsCles=responsable+de+rayon"
+                }
+            ],
+            tourisme: [
+                {
+                    nom: "Guide touristique",
+                    tension: "faible",
+                    diplomes: "Bac à Bac+2",
+                    contraintes: "Horaires variables, déplacements",
+                    salaire: "1 800 - 2 500 €",
+                    lienFranceTravail: "https://candidat.pole-emploi.fr/offres/recherche?motsCles=guide+touristique"
+                }
+            ],
+            environnement: [
+                {
+                    nom: "Technicien environnement",
+                    tension: "moyenne",
+                    diplomes: "Bac+2 à Bac+3",
+                    contraintes: "Travail extérieur, déplacements",
+                    salaire: "2 000 - 3 000 €",
+                    lienFranceTravail: "https://candidat.pole-emploi.fr/offres/recherche?motsCles=technicien+environnement"
+                }
+            ]
+        };
+
+        let metiersAComparer = [];
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.form-section');
+            sections.forEach((section, index) => {
+                setTimeout(() => {
+                    section.classList.add('visible');
+                }, 300 * index);
+            });
+        });
+
+        document.getElementById('secteur-exp').addEventListener('change', function() {
+            const secteur = this.value;
+            const metierSelect = document.getElementById('metier-exp');
+            metierSelect.innerHTML = '<option value="">-- Sélectionnez un métier --</option>';
+            metierSelect.disabled = !secteur;
+
+            if (secteur) {
+                metiersParSecteur[secteur].forEach(metier => {
+                    const option = document.createElement('option');
+                    option.value = metier.nom;
+                    option.textContent = metier.nom;
+                    metierSelect.appendChild(option);
+                });
+            }
+        });
+
+        document.getElementById('secteur-ori').addEventListener('change', function() {
+            const secteur = this.value;
+            const metierSelect = document.getElementById('metier-ori');
+            metierSelect.innerHTML = '<option value="">-- Sélectionnez un métier --</option>';
+            metierSelect.disabled = !secteur;
+
+            if (secteur) {
+                metiersParSecteur[secteur].forEach(metier => {
+                    const option = document.createElement('option');
+                    option.value = metier.nom;
+                    option.textContent = metier.nom;
+                    metierSelect.appendChild(option);
+                });
+            }
+        });
+
+        document.getElementById('voir-metier').addEventListener('click', function() {
+            const metierSelect = document.getElementById('metier-ori');
+            const metierNom = metierSelect.value;
+            const secteur = document.getElementById('secteur-ori').value;
+            const infoDiv = document.getElementById('metier-info');
+
+            if (!metierNom || !secteur) {
+                alert("Veuillez sélectionner un secteur et un métier d'orientation.");
+                return;
+            }
+
+            const metier = metiersParSecteur[secteur].find(m => m.nom === metierNom);
+            if (metier) {
+                let tensionClass = '';
+                if (metier.tension === 'forte') tensionClass = 'forte';
+                else if (metier.tension === 'moyenne') tensionClass = 'moyenne';
+                else tensionClass = 'faible';
+
+                infoDiv.innerHTML = `
+                    <h3><i class="fas fa-briefcase icon"></i> ${metier.nom}</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <div class="info-label">Tension du marché</div>
+                            <div><span class="tension ${tensionClass}">${metier.tension}</span></div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Salaire estimé</div>
+                            <div>${metier.salaire} €/mois</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Diplômes requis</div>
+                            <div>${metier.diplomes}</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Contraintes</div>
+                            <div>${metier.contraintes}</div>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Offres d'emploi</div>
+                        <div><a href="${metier.lienFranceTravail}" target="_blank"><i class="fas fa-external-link-alt icon"></i> Voir sur France Travail</a></div>
+                    </div>
+                    <button type="button" class="add-to-compare" id="ajouter-comparaison">Ajouter à la comparaison</button>
+                `;
+                infoDiv.style.display = 'block';
+
+                if (metiersAComparer.length > 0) {
+                    document.getElementById('comparaison-bouton').style.display = 'block';
+                }
+
+                document.getElementById('ajouter-comparaison').addEventListener('click', function() {
+                    if (!metiersAComparer.some(m => m.nom === metier.nom)) {
+                        metiersAComparer.push(metier);
+                        document.getElementById('comparaison-bouton').style.display = 'block';
+                        alert(`${metier.nom} ajouté à la comparaison !`);
+                    } else {
+                        alert(`${metier.nom} est déjà dans la comparaison.`);
+                    }
+                });
+            }
+        });
+
+        document.getElementById('comparaison-bouton').addEventListener('click', function() {
+            const comparaisonContainer = document.getElementById('comparaison-container');
+            const comparaisonGrid = document.getElementById('comparaison-grid');
+
+            if (metiersAComparer.length === 0) {
+                alert("Aucun métier sélectionné pour la comparaison.");
+                return;
+            }
+
+            comparaisonGrid.innerHTML = '';
+            metiersAComparer.forEach((metier, index) => {
+                let tensionClass = '';
+                if (metier.tension === 'forte') tensionClass = 'forte';
+                else if (metier.tension === 'moyenne') tensionClass = 'moyenne';
+                else tensionClass = 'faible';
+
+                const card = document.createElement('div');
+                card.className = 'metier-card';
+                card.innerHTML = `
+                    <button type="button" class="close-btn" data-index="${index}">&times;</button>
+                    <h3>${metier.nom}</h3>
+                    <div class="info-item">
+                        <div class="info-label">Tension</div>
+                        <div><span class="tension ${tensionClass}">${metier.tension}</span></div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Salaire</div>
+                        <div>${metier.salaire} €/mois</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Diplômes</div>
+                        <div>${metier.diplomes}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Contraintes</div>
+                        <div>${metier.contraintes}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Offres</div>
+                        <div><a href="${metier.lienFranceTravail}" target="_blank">Voir</a></div>
+                    </div>
+                `;
+                comparaisonGrid.appendChild(card);
+            });
+
+            comparaisonContainer.style.display = 'block';
+
+            document.querySelectorAll('.close-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    metiersAComparer.splice(index, 1);
+                    if (metiersAComparer.length === 0) {
+                        document.getElementById('comparaison-bouton').style.display = 'none';
+                    }
+                    this.parentElement.remove();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
