@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guide complet de la reconversion professionnelle - Dispositifs d'accompagnement et ressources.">
+    <title>Reconversion Professionnelle - Guide Complet et Accompagnement</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        header a {
+            text-decoration: underline;
+            transition: opacity 0.3s ease;
+        }
+
+        header a:hover {
+            opacity: 0.8;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.3em;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            margin: 60px 0;
+            padding: 40px 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        section h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        section h3 {
+            color: #764ba2;
+            font-size: 1.5em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .intro-section {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border-left: 5px solid #667eea;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-top: 4px solid #667eea;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+            margin: 10px 0;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .dispositifs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .dispositif-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 5px solid #764ba2;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .dispositif-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transform: translateY(-3px);
+        }
+
+        .dispositif-card h4 {
+            color: #764ba2;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .dispositif-card p {
+            color: #555;
+            font-size: 0.95em;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 20px;
+            border-radius: 8px;
+            margin: 60px 0;
+        }
+
+        .cta-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            color: white;
+            border-color: rgba(255, 255, 255, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .cta-section p {
+            font-size: 1.1em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 1em;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            font-family: inherit;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 14px;
+            background: #ffd700;
+            color: #333;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #ffed4e;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .links-section {
+            background: #f0f2f5;
+            padding: 40px 20px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+
+        .links-section h3 {
+            color: #667eea;
+            margin-bottom: 25px;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .link-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .link-card:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .link-card a {
+            display: inline-block;
+            color: white;
+            background: #667eea;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .link-card a:hover {
+            background: #764ba2;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        .alert {
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #667eea;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border-color: #28a745;
+        }
+
+        .alert-info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border-color: #17a2b8;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            header p {
+                font-size: 1.1em;
+            }
+
+            section {
+                margin: 40px 0;
+                padding: 25px 15px;
+            }
+
+            section h2 {
+                font-size: 1.5em;
+            }
+
+            .stats-grid,
+            .dispositifs-grid,
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div style="position: absolute; top: 10px; right: 20px; font-size: 0.85em;">
+            <a href="#" onclick="alert('Gestion des préférences de contact'); return false;" style="color: rgba(255,255,255,0.7); text-decoration: none;">Se désabonner</a>
+        </div>
+        <h1>Reconversion Professionnelle</h1>
+        <p>Réinventez votre carrière avec les dispositifs d'accompagnement adaptés à votre situation</p>
+    </header>
+
+    <div class="container">
+        <!-- Section Introduction -->
+        <section class="intro-section">
+            <h2>Pourquoi se reconvertir ?</h2>
+            <p>La reconversion professionnelle est un processus de changement de métier ou de domaine d'activité. Elle peut être motivée par une envie d'évolution, une meilleure qualité de vie, une spécialisation ou encore une adaptation aux transformations du marché du travail.</p>
+            <p style="margin-top: 20px;">Selon les données de la <strong>DARES (Direction de l'Animation de la Recherche, des Études et des Statistiques)</strong>, environ <strong>1 personne sur 4</strong> change de métier au cours de sa carrière. Les reconversions sont particulièrement importantes dans les secteurs en transformation numérique et écologique.</p>
+        </section>
+
+        <!-- Statistiques DARES -->
+        <section>
+            <h2>Chiffres Clés - DARES 2024</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Taux de reconversion annuel</div>
+                    <div class="stat-number">8-10%</div>
+                    <p style="font-size: 0.9em; color: #999;">De la population active</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Âge moyen de reconversion</div>
+                    <div class="stat-number">38 ans</div>
+                    <p style="font-size: 0.9em; color: #999;">Principalement entre 35-45 ans</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Réussite de reconversion</div>
+                    <div class="stat-number">70%</div>
+                    <p style="font-size: 0.9em; color: #999;">Avec accompagnement professionnel</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Durée moyenne</div>
+                    <div class="stat-number">18-24 mois</div>
+                    <p style="font-size: 0.9em; color: #999;">Du projet à la stabilisation</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dispositifs d'Accompagnement -->
+        <section>
+            <h2>Dispositifs d'Accompagnement</h2>
+            <p style="margin-bottom: 30px;">Plusieurs dispositifs existent pour faciliter votre reconversion professionnelle :</p>
+            
+            <div class="dispositifs-grid">
+                <div class="dispositif-card">
+                    <h4>🎓 Formation Professionnelle</h4>
+                    <p><strong>CPF (Compte Personnel de Formation)</strong> : Jusqu'à 500€/an (1000€ pour les faibles revenus) pour financer votre formation.</p>
+                    <p><strong>Congé de Formation Professionnelle</strong> : Possibilité de vous former tout en conservant votre salaire.</p>
+                </div>
+
+                <div class="dispositif-card">
+                    <h4>💼 Accompagnement Professionnel</h4>
+                    <p><strong>Conseiller Carrière</strong> : Accompagnement gratuit via France Travail ou les services régionaux.</p>
+                    <p><strong>Coaching Personnalisé</strong> : Aide au positionnement et à la construction du projet professionnel.</p>
+                </div>
+
+                <div class="dispositif-card">
+                    <h4>💰 Aides Financières</h4>
+                    <p><strong>Allocation d'Aide au Retour à l'Emploi (ARE)</strong> : Maintien partiel de l'indemnisation pendant la formation.</p>
+                    <p><strong>Aides Régionales</strong> : Subventions pour frais de formation selon votre région.</p>
+                </div>
+
+                <div class="dispositif-card">
+                    <h4>🔄 Bilan de Compétences</h4>
+                    <p>Diagnostic complet de vos compétences, aptitudes et motivations pour identifier les opportunités de reconversion.</p>
+                    <p>Financé par le CPF ou l'employeur via le plan de formation.</p>
+                </div>
+
+                <div class="dispositif-card">
+                    <h4>📊 Validation des Acquis</h4>
+                    <p><strong>VAE (Validation des Acquis de l'Expérience)</strong> : Transformer votre expérience en diplôme officiel.</p>
+                    <p>Reconnue au même titre qu'une formation traditionnelle.</p>
+                </div>
+
+                <div class="dispositif-card">
+                    <h4>🎯 Transition de Carrière</h4>
+                    <p><strong>CSP (Conseil en Stratégie Professionnelle)</strong> : Accompagnement holistique du projet de reconversion.</p>
+                    <p>Définition de la stratégie, recherche d'emploi et intégration.</p>
+                </div>
+            </div>
+
+            <div class="alert alert-info" style="margin-top: 30px;">
+                <strong>ℹ️ À savoir :</strong> La plupart de ces dispositifs sont gratuits ou fortement subventionnés. Consultez votre entreprise, l'État ou votre région pour connaître vos droits spécifiques.
+            </div>
+        </section>
+
+        <!-- Étapes de la Reconversion -->
+        <section>
+            <h2>Les Étapes de Votre Reconversion</h2>
+            
+            <h3>1️⃣ Exploration & Diagnostic (2-3 mois)</h3>
+            <p>Faire le point sur vos compétences, valeurs et objectifs. Un bilan de compétences ou un conseil en carrière peut être très utile à cette étape.</p>
+
+            <h3>2️⃣ Conception du Projet (2-4 mois)</h3>
+            <p>Identifier les métiers possibles, les secteurs d'activité et les formations nécessaires. Valider la viabilité du projet.</p>
+
+            <h3>3️⃣ Préparation & Formation (6-12 mois)</h3>
+            <p>Suivre la formation identifiée, acquérir les compétences manquantes. Parallèlement, commencer votre recherche de stage ou d'expérience.</p>
+
+            <h3>4️⃣ Transition Professionnelle (3-6 mois)</h3>
+            <p>Recherche d'emploi, entretiens, éventuellement un contrat de transition. Activement chercher une première expérience dans le nouveau domaine.</p>
+
+            <h3>5️⃣ Stabilisation & Adaptation (3-6 mois)</h3>
+            <p>Premier emploi, apprentissage des pratiques du nouveau domaine, intégration dans l'équipe et consolidation de vos nouvelles compétences.</p>
+        </section>
+
+        <!-- Ressources & Liens -->
+        <section>
+            <h2>Ressources Officielles</h2>
+            <div class="links-section">
+                <h3>Accédez aux Sources Officielles</h3>
+                <div class="links-grid">
+                    <div class="link-card">
+                        <h4>📊 DARES</h4>
+                        <p>Direction de l'Animation de la Recherche, des Études et des Statistiques</p>
+                        <a href="https://www.dares.travail-emploi.gouv.fr/" target="_blank">Consulter le site</a>
+                    </div>
+
+                    <div class="link-card">
+                        <h4>🇫🇷 France Travail</h4>
+                        <p>Agence pour l'emploi - Conseil et accompagnement</p>
+                        <a href="https://www.francetravail.fr/" target="_blank">Visiter France Travail</a>
+                    </div>
+
+                    <div class="link-card">
+                        <h4>🔄 Reconversion Pro</h4>
+                        <p>Portail officiel de la reconversion professionnelle</p>
+                        <a href="https://www.reconversionprofessionnelle.org/" target="_blank">Accéder au portail</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="cta-container">
+                <h2>Accédez à Votre Analyse de Reconversion</h2>
+                <p>Analysez votre profil et accédez à notre questionnaire INDEX personnalisé pour évaluer votre potentiel de reconversion et recevoir des recommandations adaptées à votre situation.</p>
+                <p style="margin-top: 20px; font-size: 1em; opacity: 0.95;"><strong>📧 En indiquant votre email, vous recevrez également :</strong><br>📚 Informations détaillées sur la reconversion professionnelle<br>💡 Conseils personnalisés selon votre profil<br>📊 Ressources et guides pratiques</p>
+                
+                <form id="ctaForm">
+                    <div id="successMessage" class="alert alert-success hidden">
+                        ✅ Merci ! Vous allez recevoir votre accès aux questionnaires par e-mail.
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Votre Adresse E-mail *</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="votre.email@exemple.com" 
+                            required
+                            onchange="verifyEmail()"
+                        >
+                    </div>
+                    <div id="questionnairePrompt" class="hidden" style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 5px; margin-bottom: 20px; border: 2px solid #ffd700;">
+                        <p style="margin: 0; text-align: center; font-weight: 600;">📋 Prêt à commencer ?</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nom">Votre Nom Complet *</label>
+                        <input 
+                            type="text" 
+                            id="nom" 
+                            name="nom" 
+                            placeholder="Nom Prénom" 
+                            required
+                            onchange="verifyEmail()"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telephone">Téléphone (optionnel)</label>
+                        <input 
+                            type="tel" 
+                            id="telephone" 
+                            name="telephone" 
+                            placeholder="+33 6 XX XX XX XX"
+                        >
+                    </div>
+
+                    <button type="submit" class="btn">
+                        📥 Accéder aux Questionnaires
+                    </button>
+
+                    <p style="font-size: 0.9em; margin-top: 15px; opacity: 0.9; text-align: center;">
+                        Vous aurez accès à :<br>
+                        ✓ Questionnaire INDEX<br>
+                        ✓ Dossier CDE INI Demo
+                    </p>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Reconversion Professionnelle - Guide Complet</p>
+        <p>Données sources : <a href="https://www.dares.travail-emploi.gouv.fr/" style="color: #667eea; text-decoration: none;">DARES 2024</a></p>
+        <p style="font-size: 0.9em; margin-top: 20px; opacity: 0.8;">Tous les droits réservés | Confidentialité</p>
+    </footer>
+
+    <script>
+        function verifyEmail() {
+            const email = document.getElementById('email').value;
+            const nom = document.getElementById('nom').value;
+            const prompt = document.getElementById('questionnairePrompt');
+            
+            if (email && email.includes('@') && nom && nom.trim() !== '') {
+                prompt.classList.remove('hidden');
+                
+                // Ouvrir le questionnaire après 1 seconde
+                setTimeout(() => {
+                    openQuestionnaire(email, nom);
+                }, 1000);
+            } else {
+                prompt.classList.add('hidden');
+            }
+        }
+
+        function openQuestionnaire(email, nom) {
+            // Afficher le message de succès
+            document.getElementById('successMessage').classList.remove('hidden');
+            
+            console.log('Email validé:', email, 'Nom:', nom);
+            
+            // Ouvrir le questionnaire INDEX local dans une nouvelle fenêtre/onglet (chemin exact fourni)
+            const baseFileUrl = 'file:///C:/Users/frach/Desktop/DATA%20J/PYTHON%20-SQL/PROJET%20F/Plan-prepa/FINAL/index.html';
+            const questionnaireUrl = baseFileUrl + '?email=' + encodeURIComponent(email) + '&nom=' + encodeURIComponent(nom);
+            window.open(questionnaireUrl, 'questionnaire', 'width=1000,height=800');
+            
+            // Envoyer les données au serveur (optionnel)
+            fetch('/api/send-questionnaire', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    email: email,
+                    nom: nom,
+                    timestamp: new Date().toISOString()
+                })
+            }).then(response => response.json())
+              .catch(error => console.error('Erreur:', error));
+        }
+
+        document.getElementById('ctaForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const nom = document.getElementById('nom').value;
+            const telephone = document.getElementById('telephone').value;
+
+            // Validation simple
+            if (!email || !nom) {
+                alert('Veuillez remplir tous les champs obligatoires.');
+                return;
+            }
+
+            // Afficher le message de succès
+            document.getElementById('successMessage').classList.remove('hidden');
+
+            // Simulation : envoyer les données (à adapter selon votre backend)
+            console.log('Données du formulaire complet:', {
+                email: email,
+                nom: nom,
+                telephone: telephone,
+                date: new Date().toLocaleString('fr-FR')
+            });
+
+            // Envoyer les données complètes au serveur
+            fetch('/api/send-questionnaire', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({email, nom, telephone})
+            }).then(response => response.json())
+              .catch(error => console.error('Erreur:', error));
+
+            // Réinitialiser le formulaire après 2 secondes
+            setTimeout(() => {
+                this.reset();
+                document.getElementById('successMessage').classList.add('hidden');
+                document.getElementById('questionnairePrompt').classList.add('hidden');
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
